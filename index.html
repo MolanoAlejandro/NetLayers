@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modelo OSI y TCP/IP — Visualizador Interactivo</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+
+  <!-- ===== ENCABEZADO ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <span class="logo-icon">⬡</span>
+        <div>
+          <h1 class="site-title">NetLayers</h1>
+          <p class="site-subtitle">Visualizador Interactivo · Modelo OSI &amp; TCP/IP</p>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <button class="nav-btn active" data-section="osi">Modelo OSI</button>
+        <button class="nav-btn" data-section="tcpip">TCP/IP</button>
+        <button class="nav-btn" data-section="comparador">Comparador</button>
+        <button class="nav-btn" data-section="quiz">Quiz</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main-content">
+
+    <!-- ──────────── SECCIÓN OSI ──────────── -->
+    <section id="section-osi" class="app-section active">
+      <div class="section-header">
+        <h2>Modelo OSI — 7 Capas</h2>
+        <p class="section-desc">Haz clic en cualquier capa para explorar su función, protocolos y unidad de datos.</p>
+      </div>
+
+      <div class="osi-layout">
+        <!-- Stack de capas -->
+        <div class="layers-stack" id="osi-stack">
+          <!-- Las capas se renderizan desde presentacion.js -->
+        </div>
+
+        <!-- Panel de detalle -->
+        <div class="detail-panel" id="osi-detail">
+          <div class="detail-placeholder">
+            <span class="placeholder-icon">👆</span>
+            <p>Selecciona una capa del modelo OSI para ver su información detallada.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────── SECCIÓN TCP/IP ──────────── -->
+    <section id="section-tcpip" class="app-section">
+      <div class="section-header">
+        <h2>Modelo TCP/IP — 4 Capas</h2>
+        <p class="section-desc">Explora las capas del modelo TCP/IP y sus protocolos más importantes.</p>
+      </div>
+
+      <div class="osi-layout">
+        <div class="layers-stack" id="tcpip-stack">
+          <!-- Renderizado por presentacion.js -->
+        </div>
+        <div class="detail-panel" id="tcpip-detail">
+          <div class="detail-placeholder">
+            <span class="placeholder-icon">👆</span>
+            <p>Selecciona una capa del modelo TCP/IP para ver su información.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────── SECCIÓN COMPARADOR ──────────── -->
+    <section id="section-comparador" class="app-section">
+      <div class="section-header">
+        <h2>Comparador OSI vs TCP/IP</h2>
+        <p class="section-desc">Visualiza cómo se relacionan las capas de ambos modelos y sus diferencias clave.</p>
+      </div>
+
+      <div class="comparador-wrapper">
+        <div class="comparador-grid" id="comparador-grid">
+          <!-- Renderizado por presentacion.js -->
+        </div>
+        <div class="diferencias-panel" id="diferencias-panel">
+          <!-- Renderizado por presentacion.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────── SECCIÓN QUIZ ──────────── -->
+    <section id="section-quiz" class="app-section">
+      <div class="section-header">
+        <h2>Quiz — Pon a prueba tu conocimiento</h2>
+        <p class="section-desc">Responde las preguntas sobre los modelos OSI y TCP/IP. Al final verás tu puntaje y retroalimentación.</p>
+      </div>
+
+      <div class="quiz-wrapper">
+        <!-- Estado: inicio -->
+        <div id="quiz-inicio">
+          <div class="quiz-start-card">
+            <span class="quiz-icon">🧠</span>
+            <h3>¿Listo para el quiz?</h3>
+            <p>10 preguntas sobre los modelos de red. Tienes tiempo ilimitado.</p>
+            <button class="btn-primary" id="btn-iniciar-quiz">Comenzar Quiz</button>
+          </div>
+        </div>
+
+        <!-- Estado: pregunta activa -->
+        <div id="quiz-pregunta" class="hidden">
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+          </div>
+          <p class="quiz-counter" id="quiz-counter">Pregunta 1 de 10</p>
+          <div class="quiz-card">
+            <p class="quiz-question-text" id="quiz-question-text"></p>
+            <div class="quiz-options" id="quiz-options"></div>
+            <p class="quiz-feedback hidden" id="quiz-feedback"></p>
+            <button class="btn-primary hidden" id="btn-siguiente" >Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- Estado: resultado -->
+        <div id="quiz-resultado" class="hidden">
+          <div class="quiz-result-card">
+            <div class="result-score" id="result-score-display"></div>
+            <p class="result-msg" id="result-msg"></p>
+            <div class="result-breakdown" id="result-breakdown"></div>
+            <button class="btn-primary" id="btn-reiniciar-quiz">Reiniciar Quiz</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer class="site-footer">
+    <p>Taller práctico · Redes y Cableado Estructurado · Ingeniería de Sistemas · 2025</p>
+  </footer>
+
+  <!-- Scripts en orden correcto: datos → lógica → presentación -->
+  <script src="datos.js"></script>
+  <script src="logica.js"></script>
+  <script src="presentacion.js"></script>
+</body>
+</html>
